@@ -9,7 +9,11 @@
 */
 
 /* ===== Base geral ===== */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -18,7 +22,9 @@ body {
   background: #f4f8fb;
 }
 
-a { color: #1d4e89; }
+a {
+  color: #1d4e89;
+}
 
 /* ===== Estrutura das paginas internas ===== */
 body.interna {
@@ -27,7 +33,10 @@ body.interna {
   flex-direction: column;
 }
 
-.conteudo { flex: 1; padding: 2.5rem 2rem; }
+.conteudo {
+  flex: 1;
+  padding: 2.5rem 2rem;
+}
 
 /* ===== Barra do topo (logo + menu + sair) ===== */
 .topo {
@@ -57,7 +66,11 @@ body.interna {
   flex-shrink: 0;
 }
 
-.topo nav { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.topo nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
 
 .topo nav a {
   padding: 0.4rem 0.9rem;
@@ -67,8 +80,15 @@ body.interna {
   font-size: 0.9rem;
 }
 
-.topo nav a:hover { background: #f4f8fb; }
-.topo nav a.ativo { background: #0b2545; color: #ffffff; font-weight: 500; }
+.topo nav a:hover {
+  background: #f4f8fb;
+}
+
+.topo nav a.ativo {
+  background: #0b2545;
+  color: #ffffff;
+  font-weight: 500;
+}
 
 /* ===== Faixa de destaque (titulo da pagina) ===== */
 .destaque {
@@ -77,8 +97,15 @@ body.interna {
   color: #ffffff;
 }
 
-.destaque h1 { margin: 0 0 0.5rem; font-size: 2rem; }
-.destaque p  { margin: 0 0 1.5rem; color: #cfe3f3; }
+.destaque h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+.destaque p {
+  margin: 0 0 1.5rem;
+  color: #cfe3f3;
+}
 
 /* ===== Titulos de secao ===== */
 .conteudo h2 {
@@ -103,12 +130,24 @@ body.interna button {
 }
 
 .botao,
-body.interna button { background: #1d4e89; color: #ffffff; }
-.botao:hover,
-body.interna button:hover { background: #0b2545; }
+body.interna button {
+  background: #1d4e89;
+  color: #ffffff;
+}
 
-.botao-claro { background: #ffffff; color: #1d4e89; }
-.botao-claro:hover { background: #cfe3f3; }
+.botao:hover,
+body.interna button:hover {
+  background: #0b2545;
+}
+
+.botao-claro {
+  background: #ffffff;
+  color: #1d4e89;
+}
+
+.botao-claro:hover {
+  background: #cfe3f3;
+}
 
 /* ===== Cartoes (uso no painel) ===== */
 .cartoes {
@@ -124,7 +163,11 @@ body.interna button:hover { background: #0b2545; }
   border-radius: 12px;
 }
 
-.cartao.destaque-cartao { background: #1d4e89; color: #ffffff; border-color: #1d4e89; }
+.cartao.destaque-cartao {
+  background: #1d4e89;
+  color: #ffffff;
+  border-color: #1d4e89;
+}
 
 /* ===== Tabela ===== */
 table {
@@ -135,11 +178,32 @@ table {
   border: 1px solid #cfe3f3;
 }
 
-th, td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid #cfe3f3; }
-th { background: #cfe3f3; font-weight: 500; }
+th,
+td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #cfe3f3;
+}
+
+th {
+  background: #cfe3f3;
+  font-weight: 500;
+}
+
+tbody tr {
+  transition: background 0.15s;
+}
+
+tbody tr:hover {
+  background: rgba(207, 227, 243, 0.4);
+}
 
 /* ===== Formulario ===== */
-body.interna label { display: block; margin: 1rem 0 0.25rem; font-weight: 500; }
+body.interna label {
+  display: block;
+  margin: 1rem 0 0.25rem;
+  font-weight: 500;
+}
 
 body.interna input,
 body.interna select,
@@ -155,7 +219,9 @@ body.interna textarea {
 
 body.interna input:focus,
 body.interna select:focus,
-body.interna textarea:focus { outline: 2px solid #1d4e89; }
+body.interna textarea:focus {
+  outline: 2px solid #1d4e89;
+}
 
 /* ===== Rodape ===== */
 .rodape {
@@ -165,10 +231,18 @@ body.interna textarea:focus { outline: 2px solid #1d4e89; }
   font-size: 0.85rem;
 }
 
-.rodape p { margin: 0; }
+.rodape p {
+  margin: 0;
+}
 
 /* ===== Celular ===== */
 @media (max-width: 800px) {
-  .topo { flex-direction: column; align-items: flex-start; }
-  .destaque h1 { font-size: 1.6rem; }
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .destaque h1 {
+    font-size: 1.6rem;
+  }
 }
