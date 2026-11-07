@@ -18,6 +18,7 @@
     </a>
     <nav>
       <a href="painel.html">Painel</a>
+      <a href="cadastro-pacientes.html">Cadastro</a>
       <a href="pacientes.html" class="ativo">Pacientes</a>
       <a href="triagem.html">Triagem</a>
       <a href="fila.html">Fila</a>
@@ -33,7 +34,7 @@
   <section class="destaque">
     <h1>Pacientes</h1>
     <p>Consulte e cadastre os pacientes do hospital.</p>
-    <a href="cadastro-paciente.html" class="botao-claro">Novo paciente</a>
+    <a href="cadastro-pacientes.html" class="botao-claro">Novo paciente</a>
   </section>
 
   <main class="conteudo">
@@ -41,7 +42,7 @@
       <h2>Lista de pacientes</h2>
       <input type="search" id="busca" placeholder="Buscar por nome ou CPF...">
 
-      <table>
+      <table id="lista-pacientes">
         <thead>
           <tr>
             <th>Nome</th>

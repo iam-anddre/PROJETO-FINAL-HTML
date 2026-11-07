@@ -169,7 +169,7 @@ body.interna button:hover {
   border-color: #1d4e89;
 }
 
-/* ===== Tabela ===== */
+/* ===== Tabela de pacientes ===== */
 table {
   width: 100%;
   margin-top: 1rem;
@@ -198,6 +198,8 @@ tbody tr:hover {
   background: rgba(207, 227, 243, 0.4);
 }
 
+
+
 /* ===== Formulario ===== */
 body.interna label {
   display: block;
@@ -221,6 +223,73 @@ body.interna input:focus,
 body.interna select:focus,
 body.interna textarea:focus {
   outline: 2px solid #1d4e89;
+}
+
+/* ===== Formulario de cadastro ===== */
+.bloco-compacto {
+  max-width: 700px;
+  overflow-x: auto;
+}
+
+.bloco-compacto th,
+.bloco-compacto td {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Formulario cadastro de pacientes ===== */
+body.interna .bloco-compacto form {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  margin-top: 1rem;
+  background: #ffffff;
+  border: 1px solid #cfe3f3;
+  border-radius: 20px;
+}
+
+body.interna .bloco-compacto form label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  background: #cfe3f3;
+  border-bottom: 1px solid #ffffff;
+  font-weight: 500;
+}
+
+body.interna .bloco-compacto form input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-bottom: 1px solid #cfe3f3;
+  border-radius: 0;
+}
+
+body.interna .bloco-compacto form input:focus {
+  outline: 2px solid #1d4e89;
+  outline-offset: -2px;
+}
+
+body.interna .bloco-compacto form button {
+  grid-column: 2;
+  justify-self: start;
+  margin: 1rem;
+}
+
+body.interna .bloco-compacto form a {
+  grid-column: 2;
+  margin: 0 1rem 1rem;
+}
+
+/* celular: label em cima, campo embaixo */
+@media (max-width: 600px) {
+  body.interna .bloco-compacto form {
+    grid-template-columns: 1fr;
+  }
+
+  body.interna .bloco-compacto form button,
+  body.interna .bloco-compacto form a {
+    grid-column: 1;
+  }
 }
 
 /* ===== Rodape ===== */
