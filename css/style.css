@@ -57,7 +57,7 @@ body.interna {
 }
 
 .topo nav a:hover { background: var(--gelo); }
-.topo nav a.ativo { background: var(--azul-gelo); font-weight: 500; }
+.topo nav a.ativo { background: var(--marinho); color: var(--branco); font-weight: 500; }
 
 /* ===== Faixa de destaque (tÃ­tulo da pÃ¡gina) ===== */
 .destaque {

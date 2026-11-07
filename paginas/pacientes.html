@@ -1,0 +1,57 @@
+<html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacientes - Hospital Municipal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="interna">
+
+  <header class="topo">
+    <a href="painel.html" class="marca">Hospital Municipal</a>
+    <nav>
+      <a href="painel.html">Painel</a>
+      <a href="pacientes.html" class="ativo">Pacientes</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="fila.html">Fila</a>
+      <a href="agendamento.html">Agendamento</a>
+      <a href="prontuario.html">Prontuário</a>
+      <a href="medicos.html">Médicos</a>
+      <a href="leitos.html">Leitos</a>
+      <a href="usuarios.html">Usuários</a>
+    </nav>
+    <a href="../index.html" class="botao">Sair</a>
+  </header>
+
+  <section class="destaque">
+    <h1>Pacientes</h1>
+    <p>Consulte e cadastre os pacientes do hospital.</p>
+    <a href="cadastro-paciente.html" class="botao-claro">Novo paciente</a>
+  </section>
+
+  <main class="conteudo">
+    <!-- Só esta parte muda de página para página -->
+    <section>
+      <h2>Lista de pacientes</h2>
+      <input type="search" id="busca" placeholder="Buscar por nome ou CPF...">
+
+      <table>
+        <thead>
+          <tr><th>Nome</th><th>CPF</th><th>Telefone</th><th>Ações</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Maria Souza</td><td>000.000.000-00</td><td>(83) 90000-0000</td><td><a href="prontuario.html">Ver prontuário</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Sistema do Hospital Municipal - projeto escolar</p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+
+
+</body></html>
