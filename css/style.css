@@ -1,15 +1,12 @@
-/* ===== Paleta Cool Blue ===== */
-:root {
-  --marinho: #0b2545;
-  --cobalto: #1d4e89;
-  --azul-poeira: #8da9c4;
-  --azul-gelo: #cfe3f3;
-  --gelo: #f4f8fb;
-  --branco: #ffffff;
-
-  /* margem lateral que mantÃ©m tudo alinhado numa coluna central de 1100px */
-  --lateral: max(1.5rem, calc((100% - 1100px) / 2));
-}
+/*
+  CORES USADAS NESTE ARQUIVO (paleta Cool Blue)
+  #0b2545 = azul-marinho (mais escuro)
+  #1d4e89 = azul-cobalto
+  #8da9c4 = azul-poeira
+  #cfe3f3 = azul-gelo
+  #f4f8fb = gelo (quase branco)
+  #ffffff = branco
+*/
 
 /* ===== Base geral ===== */
 *, *::before, *::after { box-sizing: border-box; }
@@ -17,20 +14,20 @@
 body {
   margin: 0;
   font-family: "Poppins", Arial, sans-serif;
-  color: var(--marinho);
-  background: var(--gelo);
+  color: #0b2545;
+  background: #f4f8fb;
 }
 
-a { color: var(--cobalto); }
+a { color: #1d4e89; }
 
-/* ===== Estrutura das pÃ¡ginas internas ===== */
+/* ===== Estrutura das paginas internas ===== */
 body.interna {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.conteudo { flex: 1; padding: 2.5rem var(--lateral); }
+.conteudo { flex: 1; padding: 2.5rem 2rem; }
 
 /* ===== Barra do topo (logo + menu + sair) ===== */
 .topo {
@@ -39,45 +36,59 @@ body.interna {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem var(--lateral);
-  background: var(--branco);
-  border-bottom: 1px solid var(--azul-gelo);
+  padding: 1rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #cfe3f3;
 }
 
-.marca { font-weight: 600; font-size: 1.15rem; color: var(--cobalto); text-decoration: none; }
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #1d4e89;
+  text-decoration: none;
+}
+
+.marca img {
+  height: 40px;
+  width: auto;
+  flex-shrink: 0;
+}
 
 .topo nav { display: flex; flex-wrap: wrap; gap: 0.25rem; }
 
 .topo nav a {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  color: var(--marinho);
+  color: #0b2545;
   text-decoration: none;
   font-size: 0.9rem;
 }
 
-.topo nav a:hover { background: var(--gelo); }
-.topo nav a.ativo { background: var(--marinho); color: var(--branco); font-weight: 500; }
+.topo nav a:hover { background: #f4f8fb; }
+.topo nav a.ativo { background: #0b2545; color: #ffffff; font-weight: 500; }
 
-/* ===== Faixa de destaque (tÃ­tulo da pÃ¡gina) ===== */
+/* ===== Faixa de destaque (titulo da pagina) ===== */
 .destaque {
-  padding: 2.5rem var(--lateral);
-  background: var(--cobalto);
-  color: var(--branco);
+  padding: 2.5rem 2rem;
+  background: #1d4e89;
+  color: #ffffff;
 }
 
 .destaque h1 { margin: 0 0 0.5rem; font-size: 2rem; }
-.destaque p  { margin: 0 0 1.5rem; color: var(--azul-gelo); }
+.destaque p  { margin: 0 0 1.5rem; color: #cfe3f3; }
 
-/* ===== TÃ­tulos de seÃ§Ã£o ===== */
+/* ===== Titulos de secao ===== */
 .conteudo h2 {
   margin: 0 0 1.25rem;
   font-size: 1.1rem;
   text-transform: uppercase;
-  color: var(--cobalto);
+  color: #1d4e89;
 }
 
-/* ===== BotÃµes (formato pÃ­lula) ===== */
+/* ===== Botoes (formato pilula) ===== */
 .botao,
 .botao-claro,
 body.interna button {
@@ -92,14 +103,14 @@ body.interna button {
 }
 
 .botao,
-body.interna button { background: var(--cobalto); color: var(--branco); }
+body.interna button { background: #1d4e89; color: #ffffff; }
 .botao:hover,
-body.interna button:hover { background: var(--marinho); }
+body.interna button:hover { background: #0b2545; }
 
-.botao-claro { background: var(--branco); color: var(--cobalto); }
-.botao-claro:hover { background: var(--azul-gelo); }
+.botao-claro { background: #ffffff; color: #1d4e89; }
+.botao-claro:hover { background: #cfe3f3; }
 
-/* ===== CartÃµes (uso no painel) ===== */
+/* ===== Cartoes (uso no painel) ===== */
 .cartoes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -108,26 +119,26 @@ body.interna button:hover { background: var(--marinho); }
 
 .cartao {
   padding: 1.25rem;
-  background: var(--branco);
-  border: 1px solid var(--azul-gelo);
+  background: #ffffff;
+  border: 1px solid #cfe3f3;
   border-radius: 12px;
 }
 
-.cartao.destaque-cartao { background: var(--cobalto); color: var(--branco); border-color: var(--cobalto); }
+.cartao.destaque-cartao { background: #1d4e89; color: #ffffff; border-color: #1d4e89; }
 
 /* ===== Tabela ===== */
 table {
   width: 100%;
   margin-top: 1rem;
   border-collapse: collapse;
-  background: var(--branco);
-  border: 1px solid var(--azul-gelo);
+  background: #ffffff;
+  border: 1px solid #cfe3f3;
 }
 
-th, td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid var(--azul-gelo); }
-th { background: var(--azul-gelo); font-weight: 500; }
+th, td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid #cfe3f3; }
+th { background: #cfe3f3; font-weight: 500; }
 
-/* ===== FormulÃ¡rio ===== */
+/* ===== Formulario ===== */
 body.interna label { display: block; margin: 1rem 0 0.25rem; font-weight: 500; }
 
 body.interna input,
@@ -135,22 +146,22 @@ body.interna select,
 body.interna textarea {
   width: 100%;
   padding: 0.65rem 1rem;
-  border: 1px solid var(--azul-poeira);
+  border: 1px solid #8da9c4;
   border-radius: 8px;
-  background: var(--branco);
+  background: #ffffff;
   font: inherit;
-  color: var(--marinho);
+  color: #0b2545;
 }
 
 body.interna input:focus,
 body.interna select:focus,
-body.interna textarea:focus { outline: 2px solid var(--cobalto); }
+body.interna textarea:focus { outline: 2px solid #1d4e89; }
 
-/* ===== RodapÃ© ===== */
+/* ===== Rodape ===== */
 .rodape {
-  padding: 1.5rem var(--lateral);
-  background: var(--marinho);
-  color: var(--azul-gelo);
+  padding: 1.5rem 2rem;
+  background: #0b2545;
+  color: #cfe3f3;
   font-size: 0.85rem;
 }
 
