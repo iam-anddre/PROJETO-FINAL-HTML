@@ -885,3 +885,50 @@ body.interna .bloco-compacto form select:focus {
     grid-column: 1;
   }
 }
+
+/* ===== PAGINA USUARIOS ===== */
+/* ===== Usuarios ===== */
+
+/* etiqueta Ativo / Inativo */
+.tag-situacao {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag-situacao.situacao-ativo {
+  background: #1d4e89;
+  color: #ffffff;
+}
+
+.tag-situacao.situacao-inativo {
+  background: #cfe3f3;
+  color: #0b2545;
+}
+
+/* botao Ativar / Desativar: contorno, menor */
+#lista-usuarios button {
+  padding: 0.3rem 1rem;
+  border: 1px solid #1d4e89;
+  background: #ffffff;
+  color: #1d4e89;
+  font-size: 0.85rem;
+}
+
+#lista-usuarios button:hover {
+  background: #cfe3f3;
+}
+
+#mensagem-usuario {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #1d4e89;
+}
+
+#usuarios-vazia {
+  margin-top: 1rem;
+  color: #1d4e89;
+}

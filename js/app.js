@@ -187,7 +187,7 @@ if (corpoConsultas && formAgendamento) {
         const guardadas = localStorage.getItem("consultas");
 
         // primeira vez: guarda alguns exemplos para a lista nao comecar vazia
-        if (guardadas === null) {
+        if (guardadas === nul) {
             const exemplos = [
                 { id: 1, paciente: "Maria Souza", medico: "Dra. Helena Duarte - Clínica geral", data: "2026-12-01", horario: "08:00" },
                 { id: 2, paciente: "João Pedro Almeida", medico: "Dr. Rafael Menezes - Cardiologia", data: "2026-12-01", horario: "09:30" },
@@ -280,4 +280,150 @@ if (corpoConsultas && formAgendamento) {
     });
 
     mostrarConsultas();
+}
+
+/* ===== Busca de medicos ===== */
+const buscaMedico = document.getElementById("busca-medico");
+
+if (buscaMedico) {
+    const cartoes = document.querySelectorAll(".medico");
+
+    function semAcento(texto) {
+        return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    buscaMedico.addEventListener("input", function () {
+        const termo = semAcento(buscaMedico.value.trim());
+
+        cartoes.forEach(function (cartao) {
+            cartao.hidden = !semAcento(cartao.textContent).includes(termo);
+        });
+    });
+}
+
+/* ===== PAGINA USUARIOS ===== */
+/* ===== Usuarios ===== */
+
+const corpoUsuarios = document.getElementById("lista-usuarios");
+const formUsuario = document.getElementById("form-usuario");
+
+if (corpoUsuarios && formUsuario) {
+    const mensagem = document.getElementById("mensagem-usuario");
+    const vazia = document.getElementById("usuarios-vazia");
+
+    function lerUsuarios() {
+        const guardados = localStorage.getItem("usuarios");
+
+        // primeira vez: guarda alguns exemplos para a lista nao comecar vazia
+        if (guardados === null) {
+            const exemplos = [
+                { id: 1, nome: "Roberto Albuquerque", matricula: "2024001", perfil: "Diretor(a)", senha: "123456", ativo: true },
+                { id: 2, nome: "Dra. Helena Duarte", matricula: "2024002", perfil: "Médico(a)", senha: "123456", ativo: true },
+                { id: 3, nome: "Dr. Rafael Menezes", matricula: "2024003", perfil: "Médico(a)", senha: "123456", ativo: true },
+                { id: 4, nome: "Juliana Prado", matricula: "2024004", perfil: "Enfermeiro(a)", senha: "123456", ativo: true },
+                { id: 5, nome: "Carla Mendonça", matricula: "2024005", perfil: "Recepcionista", senha: "123456", ativo: true },
+                { id: 6, nome: "Pedro Henrique Lacerda", matricula: "2024006", perfil: "Recepcionista", senha: "123456", ativo: false }
+            ];
+            localStorage.setItem("usuarios", JSON.stringify(exemplos));
+            return exemplos;
+        }
+
+        return JSON.parse(guardados);
+    }
+
+    function salvarUsuarios(lista) {
+        localStorage.setItem("usuarios", JSON.stringify(lista));
+    }
+
+    function mostrarUsuarios() {
+        const lista = lerUsuarios();
+
+        // ordem alfabetica
+        lista.sort(function (a, b) {
+            return a.nome.localeCompare(b.nome, "pt-BR");
+        });
+
+        corpoUsuarios.innerHTML = "";
+        vazia.hidden = lista.length > 0;
+
+        lista.forEach(function (usuario) {
+            const linha = document.createElement("tr");
+            linha.innerHTML =
+                "<td></td><td></td><td></td>" +
+                "<td><span class='tag-situacao'></span></td>" +
+                "<td><button type='button'></button></td>";
+
+            linha.cells[0].textContent = usuario.nome;
+            linha.cells[1].textContent = usuario.matricula;
+            linha.cells[2].textContent = usuario.perfil;
+
+            const tag = linha.querySelector(".tag-situacao");
+            tag.textContent = usuario.ativo ? "Ativo" : "Inativo";
+            tag.classList.add(usuario.ativo ? "situacao-ativo" : "situacao-inativo");
+
+            const botao = linha.querySelector("button");
+            botao.textContent = usuario.ativo ? "Desativar" : "Ativar";
+            botao.dataset.id = usuario.id;
+
+            corpoUsuarios.appendChild(linha);
+        });
+    }
+
+    // cadastrar
+    formUsuario.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+
+        const novo = {
+            id: Date.now(),
+            nome: document.getElementById("nome").value.trim(),
+            matricula: document.getElementById("matricula").value.trim(),
+            perfil: document.getElementById("perfil").value,
+            senha: document.getElementById("senha").value,
+            ativo: true
+        };
+        const confirmar = document.getElementById("confirmar").value;
+
+        if (novo.senha !== confirmar) {
+            mensagem.textContent = "As senhas não conferem.";
+            return;
+        }
+
+        const lista = lerUsuarios();
+
+        const repetida = lista.some(function (u) {
+            return u.matricula === novo.matricula;
+        });
+
+        if (repetida) {
+            mensagem.textContent = "Já existe um usuário com essa matrícula.";
+            return;
+        }
+
+        lista.push(novo);
+        salvarUsuarios(lista);
+
+        mensagem.textContent = "Usuário cadastrado com sucesso.";
+        formUsuario.reset();
+        mostrarUsuarios();
+    });
+
+    // ativar / desativar (clique em qualquer botao da tabela)
+    corpoUsuarios.addEventListener("click", function (evento) {
+        const botao = evento.target.closest("button");
+        if (!botao) return;
+
+        const lista = lerUsuarios();
+
+        lista.forEach(function (u) {
+            if (String(u.id) === botao.dataset.id) {
+                u.ativo = !u.ativo;
+            }
+        });
+
+        salvarUsuarios(lista);
+        mensagem.textContent = "";
+        mostrarUsuarios();
+    });
+
+    mostrarUsuarios();
 }
