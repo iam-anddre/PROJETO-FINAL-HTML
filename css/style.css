@@ -591,3 +591,84 @@ body.interna .bloco-compacto form a {
     font-size: 1.6rem;
   }
 }
+
+// ------ TELA DE TRIAGEM ------
+body.interna .bloco-compacto form textarea {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-bottom: 1px solid #cfe3f3;
+  border-radius: 0;
+  resize: vertical;
+}
+
+body.interna .bloco-compacto form textarea:focus {
+  outline: 2px solid #1d4e89;
+  outline-offset: -2px;
+}
+
+/* grupo de risco ocupa a linha inteira */
+body.interna .bloco-compacto form .risco {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid #cfe3f3;
+}
+
+body.interna .bloco-compacto form .risco legend {
+  padding: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+/* cada opcao de risco */
+body.interna .bloco-compacto form .risco label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.5rem;
+  padding: 0.6rem 0.9rem;
+  background: #ffffff;
+  border: 1px solid #cfe3f3;
+  border-left-width: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+body.interna .bloco-compacto form .risco label:hover {
+  background: rgba(207, 227, 243, 0.4);
+}
+
+/* opcao marcada fica em azul-gelo */
+body.interna .bloco-compacto form .risco label:has(input:checked) {
+  background: #cfe3f3;
+}
+
+/* a bolinha de marcar nao pode esticar como os outros campos */
+body.interna .bloco-compacto form .risco input {
+  width: auto;
+  padding: 0;
+  border: none;
+  accent-color: #1d4e89;
+}
+
+/* cor da faixa lateral de cada nivel */
+body.interna .bloco-compacto form .risco label.vermelho {
+  border-left-color: #d62828;
+}
+
+body.interna .bloco-compacto form .risco label.laranja {
+  border-left-color: #f77f00;
+}
+
+body.interna .bloco-compacto form .risco label.amarelo {
+  border-left-color: #fcbf49;
+}
+
+body.interna .bloco-compacto form .risco label.verde {
+  border-left-color: #3a9d4a;
+}
+
+body.interna .bloco-compacto form .risco label.azul {
+  border-left-color: #1d4e89;
+}
