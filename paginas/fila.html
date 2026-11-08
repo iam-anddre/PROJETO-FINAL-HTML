@@ -31,7 +31,36 @@
     <a href="../index.html" class="botao">Sair</a>
   </header>
 
+  <section class="destaque">
+    <h1>Fila de atendimento</h1>
+    <p>Pacientes aguardando, ordenados por risco e horário de chegada.</p>
+    <a href="triagem.html" class="botao-claro">Nova triagem</a>
+  </section>
 
+  <main class="conteudo">
+    <section class="bloco-compacto">
+      <h2>Pacientes aguardando</h2>
+
+      <p id="aviso-chamada" class="aviso" role="status" hidden></p>
+
+      <table class="tabela-fila">
+        <thead>
+          <tr>
+            <th>Posição</th>
+            <th>Paciente</th>
+            <th>Risco</th>
+            <th>Chegada</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="lista-fila">
+          <!-- as linhas são criadas pelo JavaScript -->
+        </tbody>
+      </table>
+
+      <p id="fila-vazia" hidden>Nenhum paciente aguardando no momento.</p>
+    </section>
+  </main>
 
   <footer class="rodape">
     <p>Sistema do Hospital Municipal - projeto escolar</p>

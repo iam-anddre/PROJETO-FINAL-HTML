@@ -672,3 +672,60 @@ body.interna .bloco-compacto form .risco label.verde {
 body.interna .bloco-compacto form .risco label.azul {
   border-left-color: #1d4e89;
 }
+
+
+/*----- TELA DE RESULTADO DA TRIAGEM -----*/
+* aviso que aparece quando um paciente e chamado */ .aviso {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #cfe3f3;
+  border-left: 6px solid #1d4e89;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* mensagem de fila vazia */
+#fila-vazia {
+  margin-top: 1rem;
+  color: #1d4e89;
+}
+
+/* botao Chamar menor, para caber na linha da tabela */
+.tabela-fila button {
+  padding: 0.3rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* etiqueta colorida do risco */
+.tag-risco {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag-risco.vermelho {
+  background: #d62828;
+  color: #ffffff;
+}
+
+.tag-risco.laranja {
+  background: #f77f00;
+  color: #0b2545;
+}
+
+.tag-risco.amarelo {
+  background: #fcbf49;
+  color: #0b2545;
+}
+
+.tag-risco.verde {
+  background: #3a9d4a;
+  color: #0b2545;
+}
+
+.tag-risco.azul {
+  background: #1d4e89;
+  color: #ffffff;
+}
