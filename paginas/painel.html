@@ -1,16 +1,16 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel - AXIS MEDICAL CENTER</title>
+  <title>Painel - Hospital Municipal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body class="interna">
-
+<body class="interna painel">
   <header class="topo">
     <a href="painel.html" class="marca">
       <img src="../imagens/logo/Interlocking Navy and Teal Medical Cross.png" alt="">
@@ -18,7 +18,6 @@
     </a>
     <nav>
       <a href="painel.html" class="ativo">Painel</a>
-      <a href="cadastro-pacientes.html">Cadastro</a>
       <a href="pacientes.html">Pacientes</a>
       <a href="triagem.html">Triagem</a>
       <a href="fila.html">Fila</a>
@@ -31,27 +30,77 @@
     <a href="../index.html" class="botao">Sair</a>
   </header>
 
-  <section class="destaque">
-    <h1>Início</h1>
-    <h3>Bem-vindo(a) ao sistema do Hospital Municipal</h3>
-    <p>Selecione uma opção no menu para continuar.</p>
-    <a href="triagem.html" class="botao-claro">Nova triagem</a>
-    <a href="medicos.html" class="botao-claro">Nossos médicos</a>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Cuidado, atenção e saúde</p>
+      <h1>Bem-vindo(a) ao painel de atendimento</h1>
+      <p>Acompanhe a rotina do Hospital Municipal e acesse rapidamente os principais recursos do sistema.</p>
+      <a href="triagem.html" class="botao-claro">Iniciar triagem</a>
+      <a href="agendamento.html" class="outline">Ver agendamentos</a>
+    </div>
   </section>
 
   <main class="conteudo">
-    <section>
-
+    <section aria-labelledby="resumo-titulo">
+      <div class="intro">
+        <div>
+          <h2 id="resumo-titulo">Visão geral</h2>
+          <p>Resumo dos atendimentos e recursos da unidade.</p>
+        </div>
+      </div>
+      <div class="stats">
+        <article class="stat">
+          <div class="stat-label"><span class="stat-icon">♙</span> Pacientes cadastrados</div>
+          <strong>—</strong><small>Acesse pacientes para consultar os registros</small>
+        </article>
+        <article class="stat">
+          <div class="stat-label"><span class="stat-icon">＋</span> Triagens</div><strong>—</strong><small>Registre uma
+            nova triagem de atendimento</small>
+        </article>
+        <article class="stat">
+          <div class="stat-label"><span class="stat-icon">◷</span> Fila de atendimento</div>
+          <strong>—</strong><small>Acompanhe a organização da fila</small>
+        </article>
+        <article class="stat">
+          <div class="stat-label"><span class="stat-icon">✚</span> Profissionais</div><strong>—</strong><small>Consulte
+            a equipe médica cadastrada</small>
+        </article>
+      </div>
     </section>
 
+    <section class="quick" aria-labelledby="atalhos-titulo">
+      <div class="quick-head">
+        <h2 id="atalhos-titulo">Acesso rápido</h2>
+        <p>Escolha uma área para continuar.</p>
+      </div>
+      <div class="quick-grid">
+        <a class="quick-card" href="pacientes.html"><span
+            class="quick-icon">♙</span><span><strong>Pacientes</strong><span>Cadastro e consulta de
+              pacientes</span></span></a>
+        <a class="quick-card" href="triagem.html"><span
+            class="quick-icon">＋</span><span><strong>Triagem</strong><span>Inicie um novo atendimento</span></span></a>
+        <a class="quick-card" href="fila.html"><span
+            class="quick-icon">◷</span><span><strong>Fila</strong><span>Visualize os atendimentos em
+              espera</span></span></a>
+        <a class="quick-card" href="agendamento.html"><span
+            class="quick-icon">▦</span><span><strong>Agendamento</strong><span>Organize consultas e
+              horários</span></span></a>
+        <a class="quick-card" href="prontuario.html"><span
+            class="quick-icon">▤</span><span><strong>Prontuário</strong><span>Acesse os registros
+              clínicos</span></span></a>
+        <a class="quick-card" href="medicos.html"><span class="quick-icon">✚</span><span><strong>Equipe
+              médica</strong><span>Consulte os profissionais</span></span></a>
+      </div>
+    </section>
+  </main>
 
-    <footer class="rodape">
-      <p>Sistema do Hospital Municipal - projeto escolar</p>
-    </footer>
+  <footer class="rodape">
+    <p>Sistema do Hospital Municipal - projeto escolar</p>
+  </footer>
+  <script src="../js/app.js"></script>
+</body>
 
-    <script src="../js/app.js"></script>
-
-
+</html>
 </body>
 
 </html>
