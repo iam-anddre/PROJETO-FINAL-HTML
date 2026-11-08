@@ -31,7 +31,79 @@
     <a href="../index.html" class="botao">Sair</a>
   </header>
 
+  <section class="destaque">
+    <h1>Agendamento</h1>
+    <p>Marque consultas e acompanhe os horários agendados.</p>
+    <a href="#nova-consulta" class="botao-claro">Nova consulta</a>
+  </section>
 
+  <main class="conteudo">
+
+    <section class="bloco-compacto">
+      <h2>Consultas agendadas</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="lista-consultas">
+          <!-- as linhas são criadas pelo JavaScript -->
+        </tbody>
+      </table>
+
+      <p id="consultas-vazia" hidden>Nenhuma consulta agendada.</p>
+    </section>
+
+    <section class="bloco-compacto" id="nova-consulta">
+      <h2>Nova consulta</h2>
+
+      <form id="form-agendamento">
+        <label for="paciente">Paciente</label>
+        <input type="text" id="paciente" name="paciente" placeholder="Nome do paciente" required>
+
+        <label for="medico">Médico</label>
+        <select id="medico" name="medico" required>
+          <option value="">Selecione o médico</option>
+          <option value="Dra. Helena Duarte - Clínica geral">Dra. Helena Duarte - Clínica geral</option>
+          <option value="Dr. Rafael Menezes - Cardiologia">Dr. Rafael Menezes - Cardiologia</option>
+          <option value="Dra. Camila Torres - Pediatria">Dra. Camila Torres - Pediatria</option>
+          <option value="Dr. Paulo Andrade - Ortopedia">Dr. Paulo Andrade - Ortopedia</option>
+          <option value="Dra. Beatriz Nogueira - Ginecologia">Dra. Beatriz Nogueira - Ginecologia</option>
+        </select>
+
+        <label for="data">Data</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="horario">Horário</label>
+        <select id="horario" name="horario" required>
+          <option value="">Selecione o horário</option>
+          <option value="08:00">08:00</option>
+          <option value="08:30">08:30</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+        </select>
+
+        <button type="submit">Agendar consulta</button>
+      </form>
+
+      <p id="mensagem-agendamento" role="alert"></p>
+    </section>
+
+  </main>
 
   <footer class="rodape">
     <p>Sistema do Hospital Municipal - projeto escolar</p>

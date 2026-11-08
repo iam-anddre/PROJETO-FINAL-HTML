@@ -167,3 +167,117 @@ if (corpoFila) {
 
     mostrarFila();
 }
+
+/*----- AGENDAMENTO DE PACIENTE -----*/
+/* ===== Agendamento (colar no fim do app.js) ===== */
+
+const corpoConsultas = document.getElementById("lista-consultas");
+const formAgendamento = document.getElementById("form-agendamento");
+
+if (corpoConsultas && formAgendamento) {
+    const mensagem = document.getElementById("mensagem-agendamento");
+    const vazia = document.getElementById("consultas-vazia");
+    const campoData = document.getElementById("data");
+
+    // nao deixa escolher data passada
+    // (o idioma "sv-SE" devolve a data local no formato AAAA-MM-DD)
+    campoData.min = new Date().toLocaleDateString("sv-SE");
+
+    function lerConsultas() {
+        const guardadas = localStorage.getItem("consultas");
+
+        // primeira vez: guarda alguns exemplos para a lista nao comecar vazia
+        if (guardadas === null) {
+            const exemplos = [
+                { id: 1, paciente: "Maria Souza", medico: "Dra. Helena Duarte - Clínica geral", data: "2026-12-01", horario: "08:00" },
+                { id: 2, paciente: "João Pedro Almeida", medico: "Dr. Rafael Menezes - Cardiologia", data: "2026-12-01", horario: "09:30" },
+                { id: 3, paciente: "Ana Clara Ferreira", medico: "Dra. Camila Torres - Pediatria", data: "2026-12-02", horario: "14:00" }
+            ];
+            localStorage.setItem("consultas", JSON.stringify(exemplos));
+            return exemplos;
+        }
+
+        return JSON.parse(guardadas);
+    }
+
+    function salvarConsultas(lista) {
+        localStorage.setItem("consultas", JSON.stringify(lista));
+    }
+
+    function mostrarConsultas() {
+        const lista = lerConsultas();
+
+        // da mais proxima para a mais distante (data + horario)
+        lista.sort(function (a, b) {
+            return (a.data + a.horario).localeCompare(b.data + b.horario);
+        });
+
+        corpoConsultas.innerHTML = "";
+        vazia.hidden = lista.length > 0;
+
+        lista.forEach(function (consulta) {
+            const linha = document.createElement("tr");
+            linha.innerHTML =
+                "<td></td><td></td><td></td><td></td>" +
+                "<td><button type='button'>Cancelar</button></td>";
+
+            // 2026-12-01 vira 01/12/2026
+            linha.cells[0].textContent = consulta.data.split("-").reverse().join("/");
+            linha.cells[1].textContent = consulta.horario;
+            linha.cells[2].textContent = consulta.paciente;
+            linha.cells[3].textContent = consulta.medico;
+
+            linha.querySelector("button").dataset.id = consulta.id;
+
+            corpoConsultas.appendChild(linha);
+        });
+    }
+
+    // agendar
+    formAgendamento.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+
+        const nova = {
+            id: Date.now(),
+            paciente: document.getElementById("paciente").value.trim(),
+            medico: document.getElementById("medico").value,
+            data: document.getElementById("data").value,
+            horario: document.getElementById("horario").value
+        };
+
+        const lista = lerConsultas();
+
+        // mesmo medico, mesmo dia e mesma hora = horario ocupado
+        const ocupado = lista.some(function (c) {
+            return c.medico === nova.medico && c.data === nova.data && c.horario === nova.horario;
+        });
+
+        if (ocupado) {
+            mensagem.textContent = "Esse horário já está ocupado para este médico. Escolha outro.";
+            return;
+        }
+
+        lista.push(nova);
+        salvarConsultas(lista);
+
+        mensagem.textContent = "Consulta agendada com sucesso.";
+        formAgendamento.reset();
+        mostrarConsultas();
+    });
+
+    // cancelar (clique em qualquer botao da tabela)
+    corpoConsultas.addEventListener("click", function (evento) {
+        const botao = evento.target.closest("button");
+        if (!botao) return;
+
+        const restante = lerConsultas().filter(function (c) {
+            return String(c.id) !== botao.dataset.id;
+        });
+
+        salvarConsultas(restante);
+        mensagem.textContent = "";
+        mostrarConsultas();
+    });
+
+    mostrarConsultas();
+}
