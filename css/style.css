@@ -568,18 +568,6 @@ body.interna .bloco-compacto form a {
   }
 }
 
-/* ===== Rodape ===== */
-.rodape {
-  padding: 1.5rem 2rem;
-  background: #0b2545;
-  color: #cfe3f3;
-  font-size: 0.85rem;
-}
-
-.rodape p {
-  margin: 0;
-}
-
 /* ===== Celular ===== */
 @media (max-width: 800px) {
   .topo {
@@ -592,7 +580,7 @@ body.interna .bloco-compacto form a {
   }
 }
 
-// ------ TELA DE TRIAGEM ------
+/* ------ TELA DE TRIAGEM ------ */
 body.interna .bloco-compacto form textarea {
   padding: 0.8rem 1rem;
   border: none;
@@ -675,7 +663,8 @@ body.interna .bloco-compacto form .risco label.azul {
 
 
 /*----- TELA DE RESULTADO DA TRIAGEM -----*/
-* aviso que aparece quando um paciente e chamado */ .aviso {
+/* aviso que aparece quando um paciente e chamado */
+.aviso {
   margin: 0 0 1.5rem;
   padding: 1rem 1.25rem;
   background: #cfe3f3;
@@ -778,7 +767,6 @@ body.interna .bloco-compacto form select:focus {
 }
 
 /* ----- PAGINA MEDICOS -----  */
-/* ===== Medicos ===== */
 #busca-medico {
   max-width: 420px;
   margin-bottom: 1.5rem;
@@ -887,7 +875,6 @@ body.interna .bloco-compacto form select:focus {
 }
 
 /* ===== PAGINA USUARIOS ===== */
-/* ===== Usuarios ===== */
 
 /* etiqueta Ativo / Inativo */
 .tag-situacao {
