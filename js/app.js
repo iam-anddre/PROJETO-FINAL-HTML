@@ -427,3 +427,129 @@ if (corpoUsuarios && formUsuario) {
 
     mostrarUsuarios();
 }
+
+/* LEITOS */
+
+const corpoLeitos = document.getElementById("lista-leitos");
+
+if (corpoLeitos) {
+    const campoBusca = document.getElementById("busca-leito");
+    const vazio = document.getElementById("leitos-vazio");
+
+    function normalizar(texto) {
+        return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    // monta a lista inicial de leitos (so na primeira vez)
+    function criarLeitos() {
+        const setores = [
+            { nome: "Clínica Geral", primeiro: 101, total: 6, ocupados: [101, 102, 104, 105] },
+            { nome: "Pediatria", primeiro: 201, total: 5, ocupados: [202, 203] },
+            { nome: "UTI", primeiro: 301, total: 4, ocupados: [301, 302, 303] },
+            { nome: "Maternidade", primeiro: 401, total: 5, ocupados: [401, 404] },
+            { nome: "Ortopedia", primeiro: 501, total: 4, ocupados: [502] }
+        ];
+
+        const lista = [];
+
+        setores.forEach(function (setor) {
+            for (let i = 0; i < setor.total; i++) {
+                const numero = setor.primeiro + i;
+                lista.push({
+                    numero: numero,
+                    setor: setor.nome,
+                    ocupado: setor.ocupados.includes(numero)
+                });
+            }
+        });
+
+        return lista;
+    }
+
+    function lerLeitos() {
+        const guardados = localStorage.getItem("leitos");
+
+        if (guardados === null) {
+            const inicial = criarLeitos();
+            localStorage.setItem("leitos", JSON.stringify(inicial));
+            return inicial;
+        }
+
+        return JSON.parse(guardados);
+    }
+
+    function salvarLeitos(lista) {
+        localStorage.setItem("leitos", JSON.stringify(lista));
+    }
+
+    function mostrarLeitos() {
+        const todos = lerLeitos();
+
+        // cartoes de resumo (contam todos os leitos, mesmo com busca)
+        const ocupados = todos.filter(function (l) { return l.ocupado; }).length;
+        const taxa = todos.length > 0 ? Math.round((ocupados / todos.length) * 100) : 0;
+
+        document.getElementById("leitos-livres").textContent = todos.length - ocupados;
+        document.getElementById("leitos-ocupados").textContent = ocupados;
+        document.getElementById("total-leitos").textContent = todos.length;
+        document.getElementById("taxa-ocupacao").textContent = taxa + "%";
+
+        // busca por numero, setor ou situacao
+        const termo = normalizar(campoBusca.value.trim());
+
+        const visiveis = todos.filter(function (l) {
+            const texto = l.numero + " " + l.setor + " " + (l.ocupado ? "ocupado" : "livre");
+            return normalizar(texto).includes(termo);
+        });
+
+        visiveis.sort(function (a, b) {
+            return a.numero - b.numero;
+        });
+
+        corpoLeitos.innerHTML = "";
+        vazio.hidden = visiveis.length > 0;
+
+        visiveis.forEach(function (leito) {
+            const linha = document.createElement("tr");
+            linha.innerHTML =
+                "<td></td><td></td>" +
+                "<td><span class='tag-leito'></span></td>" +
+                "<td><button type='button'></button></td>";
+
+            linha.cells[0].textContent = leito.numero;
+            linha.cells[1].textContent = leito.setor;
+
+            const tag = linha.querySelector(".tag-leito");
+            tag.textContent = leito.ocupado ? "Ocupado" : "Livre";
+            tag.classList.add(leito.ocupado ? "leito-ocupado" : "leito-livre");
+
+            const botao = linha.querySelector("button");
+            botao.textContent = leito.ocupado ? "Liberar" : "Ocupar";
+            botao.dataset.numero = leito.numero;
+
+            corpoLeitos.appendChild(linha);
+        });
+    }
+
+    // clique em Ocupar / Liberar
+    corpoLeitos.addEventListener("click", function (evento) {
+        const botao = evento.target.closest("button");
+        if (!botao) return;
+
+        const lista = lerLeitos();
+
+        lista.forEach(function (l) {
+            if (String(l.numero) === botao.dataset.numero) {
+                l.ocupado = !l.ocupado;
+            }
+        });
+
+        salvarLeitos(lista);
+        mostrarLeitos();
+    });
+
+    // busca: redesenha a lista a cada letra digitada
+    campoBusca.addEventListener("input", mostrarLeitos);
+
+    mostrarLeitos();
+}

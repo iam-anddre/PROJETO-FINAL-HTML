@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leitos - AXIS MEDICAL CENTER</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -31,10 +32,42 @@
     <a href="../index.html" class="botao">Sair</a>
   </header>
 
+  <section class="destaque">
+    <h1>Leitos</h1>
+    <p>Acompanhe a ocupação dos setores e atualize a situação de cada leito.</p>
+  </section>
+
   <main class="conteudo">
+
     <section class="bloco-compacto">
-      <h2>Leitos disponíveis</h2>
-      <input type="search" id="busca" placeholder="Buscar leito ou setor...">
+      <h2>Resumo</h2>
+
+      <section class="cartoes resumo-leitos">
+        <article class="cartao destaque-cartao">
+          <p>Leitos livres</p>
+          <strong id="leitos-livres">0</strong>
+        </article>
+
+        <article class="cartao">
+          <p>Leitos ocupados</p>
+          <strong id="leitos-ocupados">0</strong>
+        </article>
+
+        <article class="cartao">
+          <p>Total de leitos</p>
+          <strong id="total-leitos">0</strong>
+        </article>
+
+        <article class="cartao">
+          <p>Taxa de ocupação</p>
+          <strong id="taxa-ocupacao">0%</strong>
+        </article>
+      </section>
+    </section>
+
+    <section class="bloco-compacto">
+      <h2>Lista de leitos</h2>
+      <input type="search" id="busca-leito" placeholder="Buscar por leito, setor ou situação...">
 
       <table>
         <thead>
@@ -42,47 +75,24 @@
             <th>Leito</th>
             <th>Setor</th>
             <th>Situação</th>
+            <th>Ação</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>101</td>
-            <td>Clínica Geral</td>
-            <td>Livre</td>
-          </tr>
-          <tr>
-            <td>102</td>
-            <td>Clínica Geral</td>
-            <td>Ocupado</td>
-          </tr>
-          <tr>
-            <td>201</td>
-            <td>Pediatria</td>
-            <td>Livre</td>
-          </tr>
-          <tr>
-            <td>202</td>
-            <td>Pediatria</td>
-            <td>Ocupado</td>
-          </tr>
-          <tr>
-            <td>301</td>
-            <td>UTI</td>
-            <td>Ocupado</td>
-          </tr>
+        <tbody id="lista-leitos">
+          <!-- as linhas são criadas pelo JavaScript -->
         </tbody>
       </table>
+
+      <p id="leitos-vazio" hidden>Nenhum leito encontrado.</p>
     </section>
+
   </main>
-
-
 
   <footer class="rodape">
     <p>Sistema do Hospital Municipal - projeto escolar</p>
   </footer>
 
   <script src="../js/app.js"></script>
-
 
 </body>
 

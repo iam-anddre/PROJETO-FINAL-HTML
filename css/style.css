@@ -919,3 +919,63 @@ body.interna .bloco-compacto form select:focus {
   margin-top: 1rem;
   color: #1d4e89;
 }
+
+/* ------ PAGINA LEITOS ----- */
+
+.resumo-leitos {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.cartao p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #1d4e89;
+}
+
+.cartao strong {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.cartao.destaque-cartao p {
+  color: #cfe3f3;
+}
+
+/* etiqueta Livre / Ocupado */
+.tag-leito {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag-leito.leito-livre {
+  background: #1d4e89;
+  color: #ffffff;
+}
+
+.tag-leito.leito-ocupado {
+  background: #cfe3f3;
+  color: #0b2545;
+}
+
+/* botao Ocupar / Liberar: contorno, menor */
+#lista-leitos button {
+  padding: 0.3rem 1rem;
+  border: 1px solid #1d4e89;
+  background: #ffffff;
+  color: #1d4e89;
+  font-size: 0.85rem;
+}
+
+#lista-leitos button:hover {
+  background: #cfe3f3;
+}
+
+#leitos-vazio {
+  margin-top: 1rem;
+  color: #1d4e89;
+}
