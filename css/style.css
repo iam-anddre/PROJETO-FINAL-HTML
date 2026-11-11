@@ -1063,3 +1063,98 @@ body.interna .bloco-compacto form select:focus {
     margin: 0 auto;
   }
 }
+
+body.interna label {
+  display: block;
+  margin: 1rem 0 0.25rem;
+  font-weight: 500;
+}
+
+body.interna input,
+body.interna select,
+body.interna textarea {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1px solid #8da9c4;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  color: #0b2545;
+}
+
+body.interna input:focus,
+body.interna select:focus,
+body.interna textarea:focus {
+  outline: 2px solid #1d4e89;
+}
+
+.bloco-compacto {
+  max-width: 700px;
+  overflow-x: auto;
+}
+
+body.interna .bloco-compacto form {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  margin-top: 1rem;
+  background: #ffffff;
+  border: 1px solid #cfe3f3;
+  border-radius: 20px;
+}
+
+body.interna .bloco-compacto form label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  background: #cfe3f3;
+  border-bottom: 1px solid #ffffff;
+  font-weight: 500;
+}
+
+body.interna .bloco-compacto form input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-bottom: 1px solid #cfe3f3;
+  border-radius: 0;
+}
+
+body.interna .bloco-compacto form input:focus {
+  outline: 2px solid #1d4e89;
+  outline-offset: -2px;
+}
+
+body.interna .bloco-compacto form button {
+  grid-column: 2;
+  justify-self: start;
+  margin: 1rem;
+}
+
+body.interna .bloco-compacto form a {
+  grid-column: 2;
+  margin: 0 1rem 1rem;
+}
+
+@media (max-width: 600px) {
+  body.interna .bloco-compacto form {
+    grid-template-columns: 1fr;
+  }
+
+  body.interna .bloco-compacto form button,
+  body.interna .bloco-compacto form a {
+    grid-column: 1;
+  }
+}
+
+.rodape {
+  width: 100%;
+  margin-top: auto;
+  padding: 1.25rem 1rem;
+  background: #0b2545;
+  color: #ffffff;
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0;
+}
