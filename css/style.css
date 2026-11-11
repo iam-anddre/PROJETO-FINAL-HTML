@@ -979,3 +979,87 @@ body.interna .bloco-compacto form select:focus {
   margin-top: 1rem;
   color: #1d4e89;
 }
+
+/* ------ PAGINA DE ERRO 404 ----- */
+.pagina-404 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina-404 .topo {
+  flex-wrap: wrap;
+}
+
+.erro-conteudo {
+  width: min(1160px, 100%);
+  flex: 1;
+  display: grid;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5rem) 1.5rem;
+}
+
+.erro-cartao {
+  display: grid;
+  grid-template-columns: minmax(260px, .85fr) minmax(320px, 1.15fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 5vw, 4rem);
+  border: 1px solid #cfe3f3;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 1.25rem 3rem rgba(11, 37, 69, .08);
+}
+
+.erro-codigo {
+  margin: 0 0 .5rem;
+  color: #1d4e89;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.erro-texto h1 {
+  margin: 0;
+  color: #0b2545;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+}
+
+.erro-descricao {
+  margin: 1rem 0 1.75rem;
+  color: #46627f;
+  line-height: 1.7;
+}
+
+.erro-voltar {
+  display: inline-block;
+  padding: .75rem 1.4rem;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.erro-voltar:hover {
+  background: #0b2545;
+}
+
+.erro-ilustracao {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .erro-cartao {
+    grid-template-columns: 1fr;
+  }
+
+  .erro-ilustracao {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
