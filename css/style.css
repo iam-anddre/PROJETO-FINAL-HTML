@@ -8,7 +8,22 @@
   #ffffff = branco
 */
 
-/* ===== Base geral ===== */
+/*
+  ÍNDICE
+  1. Base e cores
+  2. Painel e responsividade do painel
+  3. Estrutura interna, navegação e elementos compartilhados
+  4. Tabelas e formulários
+  5. Triagem e fila de atendimento
+  6. Agendamento
+  7. Médicos
+  8. Usuários
+  9. Leitos
+  10. Página de erro 404
+  11. Regras complementares de formulário e rodapé
+*/
+
+/* ===== 1. Base geral ===== */
 *,
 *::before,
 *::after {
@@ -27,6 +42,7 @@ a {
 }
 
 
+/* ===== 2. Painel ===== */
 body.painel {
   background: #f4f8fb;
   color: #0b2545;
@@ -302,7 +318,7 @@ body.painel {
 }
 
 
-/* ===== Estrutura das paginas internas ===== */
+/* ===== 3. Estrutura das páginas internas ===== */
 body.interna {
   min-height: 100vh;
   display: flex;
@@ -314,7 +330,7 @@ body.interna {
   padding: 2.5rem 2rem;
 }
 
-/* ===== Barra do topo (logo + menu + sair) ===== */
+/* Navegação e identidade visual */
 .topo {
   display: flex;
   flex-wrap: wrap;
@@ -366,7 +382,7 @@ body.interna {
   font-weight: 500;
 }
 
-/* ===== Faixa de destaque (titulo da pagina) ===== */
+/* Faixa de destaque */
 .destaque {
   padding: 2.5rem 2rem;
   background: #1d4e89;
@@ -383,7 +399,7 @@ body.interna {
   color: #cfe3f3;
 }
 
-/* ===== Titulos de secao ===== */
+/* Títulos de seção */
 .conteudo h2 {
   margin: 0 0 1.25rem;
   font-size: 1.1rem;
@@ -391,7 +407,7 @@ body.interna {
   color: #1d4e89;
 }
 
-/* ===== Botoes (formato pilula) ===== */
+/* Botões */
 .botao,
 .botao-claro,
 body.interna button {
@@ -425,7 +441,7 @@ body.interna button:hover {
   background: #cfe3f3;
 }
 
-/* ===== Cartoes (uso no painel) ===== */
+/* Cartões */
 .cartoes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -445,7 +461,7 @@ body.interna button:hover {
   border-color: #1d4e89;
 }
 
-/* ===== Tabela de pacientes ===== */
+/* ===== 4. Tabelas ===== */
 table {
   width: 100%;
   margin-top: 1rem;
@@ -476,7 +492,8 @@ tbody tr:hover {
 
 
 
-/* ===== Formulario ===== */
+/* Formulários gerais */
+/* ===== 11. Regras complementares de formulário e rodapé ===== */
 body.interna label {
   display: block;
   margin: 1rem 0 0.25rem;
@@ -501,7 +518,7 @@ body.interna textarea:focus {
   outline: 2px solid #1d4e89;
 }
 
-/* ===== Formulario de cadastro ===== */
+/* Formulários compactos */
 .bloco-compacto {
   max-width: 700px;
   overflow-x: auto;
@@ -513,7 +530,7 @@ body.interna textarea:focus {
   font-size: 0.9rem;
 }
 
-/* ===== Formulario cadastro de pacientes ===== */
+/* Formulário de cadastro de pacientes */
 body.interna .bloco-compacto form {
   display: grid;
   grid-template-columns: 170px 1fr;
@@ -580,7 +597,7 @@ body.interna .bloco-compacto form a {
   }
 }
 
-/* ------ TELA DE TRIAGEM ------ */
+/* ===== 5. Triagem ===== */
 body.interna .bloco-compacto form textarea {
   padding: 0.8rem 1rem;
   border: none;
@@ -662,7 +679,7 @@ body.interna .bloco-compacto form .risco label.azul {
 }
 
 
-/*----- TELA DE RESULTADO DA TRIAGEM -----*/
+/* Fila de atendimento e classificação de risco */
 /* aviso que aparece quando um paciente e chamado */
 .aviso {
   margin: 0 0 1.5rem;
@@ -719,7 +736,7 @@ body.interna .bloco-compacto form .risco label.azul {
   color: #ffffff;
 }
 
-/* ----- TELA DE AGENDAMENTO ----- */
+/* ===== 6. Agendamento ===== */
 
 
 .bloco-compacto+.bloco-compacto {
@@ -766,7 +783,7 @@ body.interna .bloco-compacto form select:focus {
   color: #1d4e89;
 }
 
-/* ----- PAGINA MEDICOS -----  */
+/* ===== 7. Médicos ===== */
 #busca-medico {
   max-width: 420px;
   margin-bottom: 1.5rem;
@@ -874,7 +891,7 @@ body.interna .bloco-compacto form select:focus {
   }
 }
 
-/* ===== PAGINA USUARIOS ===== */
+/* ===== 8. Usuários ===== */
 
 /* etiqueta Ativo / Inativo */
 .tag-situacao {
@@ -920,7 +937,7 @@ body.interna .bloco-compacto form select:focus {
   color: #1d4e89;
 }
 
-/* ------ PAGINA LEITOS ----- */
+/* ===== 9. Leitos ===== */
 
 .resumo-leitos {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -980,7 +997,7 @@ body.interna .bloco-compacto form select:focus {
   color: #1d4e89;
 }
 
-/* ------ PAGINA DE ERRO 404 ----- */
+/* ===== 10. Página de erro 404 ===== */
 .pagina-404 {
   min-height: 100vh;
   display: flex;
@@ -1061,88 +1078,6 @@ body.interna .bloco-compacto form select:focus {
   .erro-ilustracao {
     max-width: 520px;
     margin: 0 auto;
-  }
-}
-
-body.interna label {
-  display: block;
-  margin: 1rem 0 0.25rem;
-  font-weight: 500;
-}
-
-body.interna input,
-body.interna select,
-body.interna textarea {
-  width: 100%;
-  padding: 0.65rem 1rem;
-  border: 1px solid #8da9c4;
-  border-radius: 8px;
-  background: #ffffff;
-  font: inherit;
-  color: #0b2545;
-}
-
-body.interna input:focus,
-body.interna select:focus,
-body.interna textarea:focus {
-  outline: 2px solid #1d4e89;
-}
-
-.bloco-compacto {
-  max-width: 700px;
-  overflow-x: auto;
-}
-
-body.interna .bloco-compacto form {
-  display: grid;
-  grid-template-columns: 170px 1fr;
-  margin-top: 1rem;
-  background: #ffffff;
-  border: 1px solid #cfe3f3;
-  border-radius: 20px;
-}
-
-body.interna .bloco-compacto form label {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0.8rem 1rem;
-  background: #cfe3f3;
-  border-bottom: 1px solid #ffffff;
-  font-weight: 500;
-}
-
-body.interna .bloco-compacto form input {
-  padding: 0.8rem 1rem;
-  border: none;
-  border-bottom: 1px solid #cfe3f3;
-  border-radius: 0;
-}
-
-body.interna .bloco-compacto form input:focus {
-  outline: 2px solid #1d4e89;
-  outline-offset: -2px;
-}
-
-body.interna .bloco-compacto form button {
-  grid-column: 2;
-  justify-self: start;
-  margin: 1rem;
-}
-
-body.interna .bloco-compacto form a {
-  grid-column: 2;
-  margin: 0 1rem 1rem;
-}
-
-@media (max-width: 600px) {
-  body.interna .bloco-compacto form {
-    grid-template-columns: 1fr;
-  }
-
-  body.interna .bloco-compacto form button,
-  body.interna .bloco-compacto form a {
-    grid-column: 1;
   }
 }
 
